@@ -1634,7 +1634,7 @@ class Waymark_Settings {
 			$set_value = null;
 		}
 
-		echo wp_kses(Waymark_Input::create_field($field, $set_value, false), Waymark_Helper::parameter_allowed_html());
+		echo wp_kses(Waymark_Input::create_field($field, $set_value, false), Waymark_Helper::allowable_tags('parameter'));
 	}
 
 	public function section_text($args) {

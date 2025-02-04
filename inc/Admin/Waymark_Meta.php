@@ -159,7 +159,7 @@ class Waymark_Meta {
 		Waymark_JS::add_editor($Map->get_geojson());
 
 		// Map Form (inc. Meta)
-		echo wp_kses($Map->create_form(), Waymark_Helper::parameter_allowed_html());
+		echo wp_kses($Map->create_form(), Waymark_Helper::allowable_tags('parameter'));
 
 		// translators: %s: Link to Waymark Settings
 		echo '<p>' . sprintf(wp_kses(__('You can manage Meta fields in <a href="%s">Settings</a>.', 'waymark'), ['a' => ['href' => []]]), esc_url(admin_url('edit.php?post_type=waymark_map&page=waymark-settings&tab=meta'))) . '</p>';

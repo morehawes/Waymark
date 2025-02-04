@@ -1476,206 +1476,80 @@ class Waymark_Helper {
 		return array_merge($default, $extra);
 	}
 
-/*
-
-<div class="waymark-settings-section-description"><span class="waymark-lead">Create additional input fields that appear underneath the Map Editor. Any Meta that has been input is displayed on the <a href="https://www.waymark.dev/map/route-map/">Map Details</a> page, and can also be displayed by the Shortcode.</span></div>
-<div class="waymark-repeatable" data-count="0">
-    <table class="form-table">
-<tr class="waymark-uneditable"><th scope="row"><u>Meta</u> Title</th><td>
-<!-- START meta_title Input -->
-<div class="waymark-control-group waymark-control-type-text waymark-uneditable meta_title-container">
-  <div class="waymark-controls">
-    <input class="waymark-input waymark-input-meta_title" type="text" name="Waymark_Settings[meta][inputs][meta_title]" data-id="meta_title" value="Description" />
- <a data-title="The title appears next to the input field." href="#" onclick="return false;" class="waymark-tooltip">?</a>  </div>
-</div>
-<!-- END meta_title Input -->
-</td></tr><tr><th scope="row"><span class="waymark-invisible">Meta</span> Default</th><td>
-<!-- START meta_default Input -->
-<div class="waymark-control-group waymark-control-type-text  meta_default-container">
-  <div class="waymark-controls">
-    <input class="waymark-input waymark-input-meta_default" type="text" name="Waymark_Settings[meta][inputs][meta_default]" data-id="meta_default" value="" />
- <a data-title="The default value for the input field. For Select and Multi-Select enter the option/comma-separated options to be selected by default." href="#" onclick="return false;" class="waymark-tooltip">?</a>  </div>
-</div>
-<!-- END meta_default Input -->
-</td></tr><tr><th scope="row"><span class="waymark-invisible">Meta</span> Tip</th><td>
-<!-- START meta_tip Input -->
-<div class="waymark-control-group waymark-control-type-text  meta_tip-container">
-  <div class="waymark-controls">
-    <input class="waymark-input waymark-input-meta_tip" type="text" name="Waymark_Settings[meta][inputs][meta_tip]" data-id="meta_tip" value="The Description you enter here will be displayed on the Map Details page." />
- <a data-title="A tip provides additional information about an input field... just like this!" href="#" onclick="return false;" class="waymark-tooltip">?</a> </div>
-</div>
-<!-- END meta_tip Input -->
-</td></tr><tr><th scope="row"><span class="waymark-invisible">Meta</span> Type</th><td>
-<!-- START meta_type Input -->
-<div class="waymark-control-group waymark-control-type-select  meta_type-container">
-  <div class="waymark-controls">
-    <select data-multi-value="textarea_rich" class="waymark-input waymark-input-meta_type" name="Waymark_Settings[meta][inputs][meta_type]" data-id="meta_type">
-      <option value="text">Text</option>
-      <option value="textarea">Textarea</option>
-      <option value="textarea_rich" selected="selected">Rich Text</option>
-      <option value="select">Select</option>
-      <option value="select_multi">Multi-Select</option>
-    </select>
- <a data-title="The type of input field to use." href="#" onclick="return false;" class="waymark-tooltip">?</a> </div>
-</div>
-<!-- END meta_type Input -->
-</td></tr><tr><th scope="row"><span class="waymark-invisible">Meta</span> Options</th><td>
-<!-- START meta_options Input -->
-<div class="waymark-control-group waymark-control-type-text  meta_options-container">
-  <div class="waymark-controls">
-    <input class="waymark-input waymark-input-meta_options" type="text" name="Waymark_Settings[meta][inputs][meta_options]" data-id="meta_options" value="" />
- <a data-title="A comma-separated list of options for the input." href="#" onclick="return false;" class="waymark-tooltip">?</a>  </div>
-</div>
-<!-- END meta_options Input -->
-</td></tr><tr class="waymark-hidden"><th scope="row"><span class="waymark-invisible">Meta</span> Group</th><td>
-<!-- START meta_group Input -->
-<div class="waymark-control-group waymark-control-type-select waymark-hidden meta_group-container">
-  <div class="waymark-controls">
-    <select data-multi-value="" class="waymark-input waymark-input-meta_group" name="Waymark_Settings[meta][inputs][meta_group]" data-id="meta_group">
-      <option value="" selected="selected"></option>
-    </select>
- <a data-title="Which group this Meta belongs to (if any). Meta in the same group will be displayed together when editing and viewing Maps. Meta not in a group will be displayed above any groups." href="#" onclick="return false;" class="waymark-tooltip">?</a> </div>
-</div>
-<!-- END meta_group Input -->
-</td></tr><tr><th scope="row"><span class="waymark-invisible">Meta</span> In Shortcode?</th><td>
-<!-- START meta_shortcode Input -->
-<div class="waymark-control-group waymark-control-type-boolean  waymark-short-input meta_shortcode-container">
-  <div class="waymark-controls">
-    <select data-multi-value="0" class="waymark-input waymark-input-meta_shortcode" name="Waymark_Settings[meta][inputs][meta_shortcode]" data-id="meta_shortcode">
-      <option value="1">Yes</option>
-      <option value="0" selected="selected">No</option>
-    </select>
- <a data-title="Whether this content should be displayed when embedding a Map using the Shortcode." href="#" onclick="return false;" class="waymark-tooltip">?</a>  </div>
-</div>
-<!-- END meta_shortcode Input -->
-</td></tr><tr class=" waymark-hidden"><th scope="row"><span class="waymark-invisible">Meta</span> In Submissions?</th><td>
-<!-- START meta_submission Input -->
-<div class="waymark-control-group waymark-control-type-boolean  waymark-hidden waymark-short-input meta_submission-container">
-  <div class="waymark-controls">
-    <select data-multi-value="0" class="waymark-input waymark-input-meta_submission" name="Waymark_Settings[meta][inputs][meta_submission]" data-id="meta_submission">
-      <option value="1">Yes</option>
-      <option value="0" selected="selected">No</option>
-    </select>
- <a data-title="Make this Meta available in front-end Submissions?" href="#" onclick="return false;" class="waymark-tooltip">?</a>  </div>
-</div>
-<!-- END meta_submission Input -->
-</td></tr>    </table>
-</div>
-  <div class="waymark-settings-section-footer"><small><b>Pro Tip!</b> The first listed will be used as the default. Drag to re-order, remove all to restore defaults.</small></div>
-</div>
-    <div class="waymark-settings-section waymark-settings-section-groups">
-    <h2>Groups</h2>
-    <div class="waymark-settings-section-description"><span class="waymark-lead">Create groups to organise your Map Meta. Meta in the same group will be displayed together when editing and viewing Maps.</span></div>
-<div class="waymark-repeatable" data-count="0">
-    <table class="form-table">
-<tr><th scope="row"><u>Group</u> Title</th><td>
-<!-- START group_title Input -->
-<div class="waymark-control-group waymark-control-type-text  group_title-container">
-  <div class="waymark-controls">
-    <input class="waymark-input waymark-input-group_title" type="text" name="Waymark_Settings[meta][groups][group_title]" data-id="group_title" value="" />
- <a data-title="The title appears above the Meta in that group." href="#" onclick="return false;" class="waymark-tooltip">?</a> </div>
-</div>
-<!-- END group_title Input -->
-</td></tr>    </table>
-</div>
-  <div class="waymark-settings-section-footer"><small><b>Pro Tip!</b> Drag to re-order, remove all to disable groups.</small></div>
-</div>
-  </div>
-  <div class="waymark-settings-tab waymark-settings-tab-properties">
-  <div class="waymark-settings-tab-description"></div>
-    <div class="waymark-settings-section waymark-settings-section-props">
-    <h2>Properties</h2>
-    <div class="waymark-settings-section-description"><span class="waymark-lead">Read <b><a href="https://geojson.org/">GeoJSON</a></b> feature properties when importing.</span><br /><br />If Waymark finds data for the property keys below it will stored when it is imported. These can be automatically appended to the Overlay Description, or accessed programatically the <code>layer.feature.properties</code> Object.</div>
-<div class="waymark-repeatable" data-count="0">
-    <table class="form-table">
-<tr><th scope="row"><u>Property</u> Key</th><td>
-<!-- START property_key Input -->
-<div class="waymark-control-group waymark-control-type-text  property_key-container">
-  <div class="waymark-controls">
-    <input class="waymark-input waymark-input-property_key" type="text" name="Waymark_Settings[properties][props][property_key]" data-id="property_key" value="" />
- <a data-title="This is the key associated with the data you are trying to access, i.e. &quot;properties&quot;: {&quot;property_key&quot;: &quot;Some content here&quot;}." href="#" onclick="return false;" class="waymark-tooltip">?</a>  </div>
-</div>
-<!-- END property_key Input -->
-</td></tr><tr><th scope="row"><u><span class="waymark-invisible">Property</span></u> Title</th><td>
-<!-- START property_title Input -->
-<div class="waymark-control-group waymark-control-type-text  property_title-container">
-  <div class="waymark-controls">
-    <input class="waymark-input waymark-input-property_title" type="text" name="Waymark_Settings[properties][props][property_title]" data-id="property_title" value="" />
- <a data-title="The value for this property will be added to the Overlay Description under this title." href="#" onclick="return false;" class="waymark-tooltip">?</a>  </div>
-</div>
-<!-- END property_title Input -->
-
-*/
-
 	public static function parameter_allowed_html() {
-		return [
-			'div' => [
-				'id' => [],
-				'class' => [],
-				'title' => [],
-			],
-			'legend' => [
-				'title' => [],
-			],
-			'link' => [
-				'rel' => [],
-				'href' => [],
-				'media' => [],
-				'id' => [],
-			],
-			'textarea' => [
-				'class' => [],
-				'name' => [],
-				'data-id' => [],
-				'rows' => [],
-				'cols' => [],
-				'id' => [],
-			],
-			'a' => [
-				'data-title' => [],
-				'href' => [],
-				'onclick' => [],
-				'class' => [],
-			],
-			'label' => [
-				'for' => [],
-				'class' => [],
-			],
-			'input' => [
-				'type' => [],
-				'name' => [],
-				'data-id' => [],
-				'value' => [],
-				'class' => [],
-				'id' => [],
-			],
-			'select' => [
-				'multiple' => [],
-				'class' => [],
-				'name' => [],
-				'data-id' => [],
-				'data-multi-value' => [],
-			],
-			'option' => [
-				'value' => [],
-				'selected' => [],
-			],
-			'button' => [
-				'type' => [],
-				'class' => [],
-				'data-id' => [],
-			],
-			'span' => [
-				'class' => [],
-			],
-			'small' => [
-				'class' => [],
-			],
-		];
+		return;
 	}
 
 	public static function allowable_tags($kind = '') {
 		switch ($kind) {
+		case 'parameter':
+			return [
+				'div' => [
+					'id' => [],
+					'class' => [],
+					'title' => [],
+				],
+				'legend' => [
+					'title' => [],
+				],
+				'link' => [
+					'rel' => [],
+					'href' => [],
+					'media' => [],
+					'id' => [],
+				],
+				'textarea' => [
+					'class' => [],
+					'name' => [],
+					'data-id' => [],
+					'rows' => [],
+					'cols' => [],
+					'id' => [],
+				],
+				'a' => [
+					'data-title' => [],
+					'href' => [],
+					'onclick' => [],
+					'class' => [],
+				],
+				'label' => [
+					'for' => [],
+					'class' => [],
+				],
+				'input' => [
+					'type' => [],
+					'name' => [],
+					'data-id' => [],
+					'value' => [],
+					'class' => [],
+					'id' => [],
+				],
+				'select' => [
+					'multiple' => [],
+					'class' => [],
+					'name' => [],
+					'data-id' => [],
+					'data-multi-value' => [],
+				],
+				'option' => [
+					'value' => [],
+					'selected' => [],
+				],
+				'button' => [
+					'type' => [],
+					'class' => [],
+					'data-id' => [],
+				],
+				'span' => [
+					'class' => [],
+				],
+				'small' => [
+					'class' => [],
+				],
+			];
+
+			break;
+
 		case 'kml':
 			return [
 				'kml' => [
